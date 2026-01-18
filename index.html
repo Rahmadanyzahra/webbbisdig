@@ -174,7 +174,7 @@
     }
 
     #hero {
-      panding-top : 100px;
+      padding-top : 100px;
     }
 
     #hero .content {
@@ -539,13 +539,98 @@
   <!-- Navbar -->
   <nav>
     <img src="img/logo.png" alt="RAS Project Helper Logo">
-    <ul>
+    <ul class="main-menu">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">Tentang Kami</a></li>
       <li><a href="#services">Layanan</a></li>
       <li><a href="#testimoni">Testimoni</a></li>
       <li><a href="https://wa.me/6285607002281?text=Hallo%20kak,%20saya%20mau%20joki%20tugas">Tanya Kuy</a></li>
     </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <div class="menu-modal" id="menuModal">
+      <button class="close-btn" id="closeMenu" aria-label="Tutup"><i class="fas fa-times"></i></button>
+      <ul>
+        <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-user"></i> Tentang Kami</a></li>
+        <li><a href="#services"><i class="fas fa-briefcase"></i> Layanan</a></li>
+        <li><a href="#testimoni"><i class="fas fa-comment"></i> Testimoni</a></li>
+        <li><a href="https://wa.me/6285607002281?text=Hallo%20kak,%20saya%20mau%20joki%20tugas"><i class="fab fa-whatsapp"></i> Tanya Kuy</a></li>
+      </ul>
+    </div>
+      /* Hamburger only on mobile, menu normal on desktop */
+      .menu-btn, .menu-modal { display: none; }
+      @media (max-width: 900px) {
+        nav ul.main-menu { display: none; }
+        .menu-btn { 
+          display: flex;
+          position: fixed;
+          top: 18px;
+          right: 18px;
+          z-index: 1100;
+          background: none;
+          border: none;
+          font-size: 2.3rem;
+          color: #d72660;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+          padding: 8px 14px;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        .menu-modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: #fff0f6;
+          z-index: 2000;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          animation: fadeIn 0.3s;
+          padding-top: 60px;
+        }
+        .menu-modal.active {
+          display: flex;
+        }
+        .menu-modal ul {
+          gap: 2.5rem;
+        }
+        .menu-modal li a {
+          font-size: 1.7rem;
+          padding: 18px 32px;
+          color: #d72660;
+        }
+        .close-btn {
+          font-size: 2.5rem;
+          top: 18px;
+          right: 18px;
+          position: absolute;
+          background: none;
+          border: none;
+          color: #d72660;
+          cursor: pointer;
+        }
+      }
+      // Hamburger menu logic
+      const menuBtn = document.getElementById('menuBtn');
+      const menuModal = document.getElementById('menuModal');
+      const closeMenu = document.getElementById('closeMenu');
+      if(menuBtn && menuModal && closeMenu) {
+        menuBtn.addEventListener('click', () => {
+          menuModal.classList.add('active');
+        });
+        closeMenu.addEventListener('click', () => {
+          menuModal.classList.remove('active');
+        });
+        // Close modal on outside click
+        menuModal.addEventListener('click', (e) => {
+          if (e.target === menuModal) menuModal.classList.remove('active');
+        });
+      }
   </nav>
 
   <!-- Hero -->
