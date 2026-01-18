@@ -559,8 +559,9 @@
     </div>
       /* Hamburger only on mobile, menu normal on desktop */
       .menu-btn, .menu-modal { display: none; }
+      nav ul.main-menu { display: flex; }
       @media (max-width: 900px) {
-        nav ul.main-menu { display: none; }
+        nav ul.main-menu { display: none !important; }
         .menu-btn { 
           display: flex;
           position: fixed;
