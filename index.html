@@ -7,6 +7,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    @media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 8px 0;
+  }
+
+  #hero .content,
+  #about .content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #hero .image {
+    margin-left: 0 !important;
+    text-align: center;
+  }
+
+  #hero .image img {
+    max-width: 90%;
+  }
+
+  section {
+    height: auto;
+    padding: 40px 0;
+  }
+}
     /* Animasi Fade In */
     @keyframes fadeInUp {
       from {
@@ -250,6 +285,7 @@
       margin-top: 0.5em;
       animation: fadeInUp 1.7s;
       background: transparent;
+      margin-left: 0;
     }
 
     @keyframes float {
@@ -495,7 +531,7 @@
         <p>Kami menyediakan jasa tugas, ketik, dan tulis tangan dengan harga terjangkau dan hasil terbaik.</p>
         <a href="https://wa.me/6285607002281" target="_blank">Hubungi via WhatsApp</a>
       </div>
-          <div class="image" style="margin-left: 180px;">
+          <div class="image">
             <img src="img/home.png" alt="Ilustrasi Proyek" style="max-width:340px; width:100%; background:transparent; border-radius:0; box-shadow:none; display:block;" />
           </div>
     </div>
@@ -639,5 +675,6 @@
 
 </body>
 </html>
+
 
 
